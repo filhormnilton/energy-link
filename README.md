@@ -1,4 +1,4 @@
-# ⚡ WEG Energy Link (V6.0)
+# ⚡ Energy Link (V6.0)
 ### Gestão de Créditos de Energia Solar via Smart Contract
 
 Este projeto foi desenvolvido para automatizar a gestão, auditoria e transferência de créditos de energia solar distribuída. O sistema utiliza a tecnologia Blockchain para garantir que cada kWh gerado seja registrado de forma imutável e vinculada a uma Unidade Consumidora (UC) real.
