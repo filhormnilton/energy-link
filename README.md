@@ -49,7 +49,7 @@ graph TD
     VizinhoSaldo -- "Fatura Digital" --> Celesc["Compensacao na Distribuidora"]
 
     %% Estilos
-    style SC fill:#f9f,stroke:#333,stroke-width:4px
+    style SC fill:#f9f,stroke:#333,stroke-width:4px,color:#000
     style AdminWallet fill:#dfd,stroke:#080,stroke-width:2px
     style SolarPanel fill:#fff4dd,stroke:#d4a017
 ```
