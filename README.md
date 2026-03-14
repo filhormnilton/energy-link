@@ -25,11 +25,11 @@ No modelo atual de geração distribuída, o rateio de créditos costuma ser man
 
 graph TD
     %% Entidades
-    SolarPanel[Usiina Solar/IoT] -- "Geração Real (kWh)" --> Medidor[Medidor Inteligente WEG]
+    SolarPanel[Usina Solar/IoT] -- "Geração Real (kWh)" --> Medidor[Medidor Inteligente WEG]
     Medidor -- "Chamada registrarGeracao()" --> SC[Smart Contract: kWHW]
     
     %% Lógica do Contrato
-    subid SC "Smart Contract (Blockchain)"
+    subgraph SC_Logic [Smart Contract Blockchain]
         SC -- "Mint (1:1)" --> UserWallet[Carteira do Prosumidor]
         SC -- "Verifica UC Ativa" --> DB[Mapeamento de UC/Compliance]
     end
