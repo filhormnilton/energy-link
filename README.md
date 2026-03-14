@@ -22,6 +22,37 @@ No modelo atual de geração distribuída, o rateio de créditos costuma ser man
 3. No Deploy, utilize o endereço do Administrador para gerenciar as taxas e cadastrar as UCs.
 4. Utilize a função `cadastrarUnidadeConsumidora` antes de realizar transferências para garantir o compliance.
 
+
+graph TD
+    %% Entidades
+    SolarPanel[Usiina Solar/IoT] -- "Geração Real (kWh)" --> Medidor[Medidor Inteligente WEG]
+    Medidor -- "Chamada registrarGeracao()" --> SC[Smart Contract: kWHW]
+    
+    %% Lógica do Contrato
+    subid SC "Smart Contract (Blockchain)"
+        SC -- "Mint (1:1)" --> UserWallet[Carteira do Prosumidor]
+        SC -- "Verifica UC Ativa" --> DB[Mapeamento de UC/Compliance]
+    end
+
+    %% Transação P2P
+    UserWallet -- "Transferência P2P" --> Vizinho[Carteira do Vizinho]
+    
+    %% Monetização
+    subgraph Receita
+        Vizinho -- "99% do Crédito" --> VizinhoSaldo[Saldo de Energia]
+        Vizinho -- "1% de Taxa" --> AdminWallet[Carteira Negócios/Admin]
+    end
+
+    %% Valor Real
+    AdminWallet -- "Acúmulo de Taxas" --> Profit[Sustentabilidade da Plataforma]
+    VizinhoSaldo -- "Fatura Digital" --> Celesc[Compensação na Distribuidora]
+
+    %% Estilos
+    style SC fill:#f9f,stroke:#333,stroke-width:4px
+    style AdminWallet fill:#dfd,stroke:#080,stroke-width:2px
+    style SolarPanel fill:#fff4dd,stroke:#d4a017
+
+
 ---
 **Desenvolvido por:** [filhormnilton](https://github.com/filhormnilton)  
 **Localização:** Jaraguá do Sul, SC - Brasil
